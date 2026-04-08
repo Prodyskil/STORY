@@ -269,7 +269,12 @@
   <h1 class="intro">Каждая история —<br><span class="hi">другая.</span></h1>
   <p class="intro-sub">Генерирует уникальные параметры и собирает готовый промпт. Нажми кнопку, скопируй, вставь в чат — и получи новую историю.</p>
 
-  <div class="slabel">параметры истории</div>
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+    <div class="slabel" style="margin-bottom:0; flex:1;">параметры истории</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text3); margin-left:1rem; white-space:nowrap;">
+      <span style="color:var(--accent);" id="combo-count"></span> уникальных историй
+    </div>
+  </div>
 
   <div class="seed-grid">
     <div class="seed-item"><div class="seed-key">// герой</div><div class="seed-val name" id="s-hero">—</div></div>
@@ -589,7 +594,7 @@ const turningPoints = [
   "жена приходит домой и первым делом идёт в душ — хотя только что вернулась с работы"
 ];
 
- = ["Кейд","Эверетт","Грейсон","Бакстер","Коди","Трент","Декстер","Клинт","Холден","Рэй","Паркер","Вейд","Флинн","Коул","Рид","Гарретт","Тернер","Брэди","Лэйн","Боуэн","Корбин","Хэйс","Риган","Стил","Дэкстон"];
+const names_m = ["Кейд","Эверетт","Грейсон","Бакстер","Коди","Трент","Декстер","Клинт","Холден","Рэй","Паркер","Вейд","Флинн","Коул","Рид","Гарретт","Тернер","Брэди","Лэйн","Боуэн","Корбин","Хэйс","Риган","Стил","Дэкстон"];
 const names_f = ["Рейчел","Кортни","Эмбер","Лейси","Камилла","Тиффани","Эшли","Мэдисон","Дженна","Николь","Шеннон","Трейси","Бриа","Дарлин","Хейли","Саванна","Пейдж","Кайли","Мерит","Брук","Лэйни","Тейлор","Челси","Эрин","Ноэль"];
 
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
@@ -669,6 +674,8 @@ function copyPrompt() {
 }
 
 randomize();
+
+document.getElementById('combo-count').textContent = (conflicts.length * turningPoints.length).toLocaleString('ru-RU');
 </script>
 </body>
 </html>
