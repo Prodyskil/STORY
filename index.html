@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Story Prompt Generator</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -29,8 +29,9 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 300;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -59,13 +60,13 @@
     gap: 1rem;
   }
   .logo {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--accent);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
   }
-  .logo span { color: var(--green); }
+  .logo span { color: var(--text2); }
   .badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6rem;
@@ -78,21 +79,21 @@
   .header-right {
     margin-left: auto;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text3);
   }
 
   /* INTRO */
   .intro {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.6rem;
+    font-weight: 600;
     line-height: 1.15;
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
   }
   .intro .hi { color: var(--accent); }
   .intro-sub {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text2);
     margin-bottom: 2.5rem;
     line-height: 1.7;
@@ -102,8 +103,8 @@
   /* SECTION LABEL */
   .slabel {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text3);
     margin-bottom: 0.75rem;
@@ -127,7 +128,7 @@
   }
   .seed-item {
     background: var(--surface);
-    padding: 0.9rem 1.1rem;
+    padding: 1rem 1.2rem;
     transition: background 0.2s;
     position: relative;
   }
@@ -135,21 +136,21 @@
   .seed-item.full { grid-column: 1 / -1; }
   .seed-key {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent2);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
   }
   .seed-val {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text);
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.5;
   }
   .seed-val.name {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--accent);
   }
 
@@ -173,10 +174,10 @@
   .btn-row { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
 
   .btn {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    padding: 0.65rem 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 0.65rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.15s;
@@ -213,22 +214,22 @@
   }
   .prompt-header-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text3);
   }
   .prompt-header-label span { color: var(--green); margin-right: 6px; }
   .char-count {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     color: var(--text3);
   }
   .prompt-body {
     background: var(--surface2);
-    padding: 1.25rem 1.4rem;
+    padding: 1.5rem 1.6rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     line-height: 1.85;
     color: var(--text);
     white-space: pre-wrap;
@@ -296,8 +297,10 @@
     <div class="seed-item"><div class="seed-key">// герой</div><div class="seed-val name" id="s-hero">—</div><button class="mini-btn" onclick="reroll('hero')">↻</button></div>
     <div class="seed-item" style="grid-column:2/-1;"><div class="seed-key">// жена</div><div class="seed-val name" id="s-wife">—</div><button class="mini-btn" onclick="reroll('wife')">↻</button></div>
     <div class="seed-item full" style="position:relative;"><div class="seed-key">// сигнал для начала</div><div class="seed-val" id="s-signal">—</div><button class="mini-btn" onclick="reroll('signal')">↻</button></div>
+    <div class="seed-item full" style="position:relative;"><div class="seed-key">// как узнал о предательстве</div><div class="seed-val" id="s-howfound">—</div><button class="mini-btn" onclick="reroll('howFound')">↻</button></div>
     <div class="seed-item full" style="position:relative;"><div class="seed-key">// суть конфликта</div><div class="seed-val" id="s-conflict">—</div><button class="mini-btn" onclick="reroll('conflict')">↻</button></div>
     <div class="seed-item full" style="position:relative;"><div class="seed-key">// переломный момент</div><div class="seed-val" id="s-turning">—</div><button class="mini-btn" onclick="reroll('turning')">↻</button></div>
+    <div class="seed-item full" style="position:relative;"><div class="seed-key">// ответные действия жены</div><div class="seed-val" id="s-wiferesp">—</div><button class="mini-btn" onclick="reroll('wifeResp')">↻</button></div>
     <div class="seed-item full" style="position:relative;"><div class="seed-key">// действия героя в финале</div><div class="seed-val" id="s-action">—</div><button class="mini-btn" onclick="reroll('action')">↻</button></div>
   </div>
 
@@ -436,6 +439,36 @@ const signals = [
   "жена стала защищать малознакомого мужчину в спорах с мужем — горячо и без повода"
 ];
 
+const howFound = [
+  "муж замечает имя в телефоне жены — она не успевает убрать экран",
+  "муж случайно слышит разговор жены по телефону — она говорит шёпотом, но слов достаточно",
+  "муж находит в машине чужую вещь, которую жена не может объяснить",
+  "муж видит в банковской выписке транзакции в местах, где жена якобы не была",
+  "общий знакомый невзначай упоминает, что видел жену с кем-то — не зная, что это тайна",
+  "муж получает анонимное сообщение с именем и конкретными деталями",
+  "жена оговаривается — называет место, где быть не могла, или имя, которое слышать не должна была",
+  "муж обнаруживает, что жена удалила его из геолокации, хотя он её не удалял",
+  "ребёнок или родственник случайно упоминает детали, которые жена тщательно скрывала",
+  "муж приезжает раньше и видит жену в месте, которое не совпадает с её версией вечера",
+  "муж находит черновик сообщения, которое жена не успела удалить",
+  "жена не знает, что муж уже поговорил с тем человеком — и её версия рассыпается",
+  "коллега жены случайно раскрывает деталь, о которой мужу знать не полагалось",
+  "муж замечает, что жена слишком хорошо знает детали события, на котором не присутствовала",
+  "муж обнаруживает распечатку бронирования — на двоих, в месте, куда жена якобы ездила одна",
+  "жена называет точное время события, которое не должна была знать",
+  "муж видит жену выходящей из чужой машины — она не замечает его взгляда",
+  "жена стала получать звонки строго в одно и то же время — муж проверяет и находит подтверждение",
+  "муж нанимает человека, который собирает факты — и факты не оставляют вопросов",
+  "жена во время ссоры произносит фразу, которую могла знать только от конкретного человека",
+  "муж обнаруживает второй телефон — случайно, в кармане куртки",
+  "жена возвращается домой с запахом чужого парфюма, который муж запоминает с первого раза",
+  "муж сопоставляет несколько мелких деталей за несколько недель — и картина складывается сама",
+  "жена оставляет открытым приложение, которое муж видит краем глаза — одного взгляда хватает",
+  "подруга жены случайно звонит мужу вместо неё и теряется, не зная что говорить",
+  "муж замечает, что жена удалила переписку с одним конкретным контактом — за несколько месяцев",
+  "чужой человек пишет мужу напрямую — без объяснений, просто факты"
+];
+
 const conflicts = [
   "жена завела роман с другим мужчиной и продолжает его, пока делает вид, что всё в порядке",
   "жена завела эмоциональную связь с другим мужчиной, которая давно переросла в нечто большее",
@@ -544,6 +577,35 @@ const heroActions = [
   "герой прощается с жизнью, которая была, и уходит — не в злость, а в следующую главу"
 ];
 
+const wifeResponse = [
+  "жена делает вид, что ничего не произошло — продолжает жить как обычно, словно ждёт, что муж сам всё забудет",
+  "жена переходит в атаку: обвиняет мужа в паранойе, слежке и нарушении её личных границ",
+  "жена признаёт часть правды, но преподносит её как ошибку — и немедленно просит прощения",
+  "жена плачет и говорит, что запуталась — но конкретных ответов на конкретные вопросы так и не даёт",
+  "жена исчезает на несколько дней, не отвечая на звонки, а потом возвращается как ни в чём не бывало",
+  "жена пытается сыграть роль жертвы: говорит, что муж довёл её своим поведением",
+  "жена предлагает начать всё сначала — без объяснений, без честного разговора, просто перевернуть страницу",
+  "жена признаётся полностью, но тут же переключается на то, что в браке было не так",
+  "жена становится демонстративно ласковой — готовит, убирает, старается — но от прямого разговора уходит",
+  "жена звонит его матери и пытается перетянуть родственников на свою сторону",
+  "жена угрожает разводом первой — как будто это даёт ей власть над ситуацией",
+  "жена говорит, что всё закончено с тем человеком — и требует верить на слово, без доказательств",
+  "жена консультируется с юристом раньше, чем соглашается на честный разговор",
+  "жена начинает собирать вещи демонстративно — рассчитывая, что муж будет её останавливать",
+  "жена переезжает к подруге и оттуда присылает сообщения с намёками на примирение",
+  "жена обращается к общим друзьям, чтобы те поговорили с мужем и смягчили ситуацию",
+  "жена отрицает всё до конца — даже когда факты неопровержимы, просто повторяет нет",
+  "жена молчит несколько дней, а потом предлагает сходить к психологу вместе — как будто проблема обоюдная",
+  "жена пытается соблазнить мужа — интуитивно, как последний рычаг влияния",
+  "жена уходит в обиду: говорит, что раз муж так думает, то незачем что-то объяснять",
+  "жена начинает активно публиковать счастливые фото в социальных сетях — как демонстрация",
+  "жена звонит среди ночи, говорит что любит — а наутро ведёт себя так, словно звонка не было",
+  "жена собирает всё самое важное из дома, пока мужа нет — без предупреждения",
+  "жена требует, чтобы муж первым попросил прощения — за то, что он узнал правду",
+  "жена переключается: начинает говорить о деньгах, об имуществе, о том что ей причитается",
+  "жена находит нового союзника — кто-то из окружения мужа переходит на её сторону"
+];
+
 const names_m = ["Кейд","Эверетт","Грейсон","Бакстер","Коди","Трент","Декстер","Клинт","Холден","Рэй","Паркер","Вейд","Флинн","Коул","Рид","Гарретт","Тернер","Брэди","Лэйн","Боуэн","Корбин","Хэйс","Риган","Стил","Дэкстон"];
 const names_f = ["Рейчел","Кортни","Эмбер","Лейси","Камилла","Тиффани","Эшли","Мэдисон","Дженна","Николь","Шеннон","Трейси","Бриа","Дарлин","Хейли","Саванна","Пейдж","Кайли","Мерит","Брук","Лэйни","Тейлор","Челси","Эрин","Ноэль"];
 
@@ -561,8 +623,10 @@ function randomize() {
     hero: pick(names_m),
     wife: pick(names_f),
     signal: pick(signals),
+    howFound: pick(howFound),
     conflict: pick(conflicts),
     turning: pick(turningPoints),
+    wifeResp: pick(wifeResponse),
     action: pick(heroActions)
   };
 
@@ -576,8 +640,10 @@ function randomize() {
   set('s-hero', current.hero);
   set('s-wife', current.wife);
   set('s-signal', current.signal);
+  set('s-howfound', current.howFound);
   set('s-conflict', current.conflict);
   set('s-turning', current.turning);
+  set('s-wiferesp', current.wifeResp);
   set('s-action', current.action);
 
   buildPrompt();
@@ -588,8 +654,10 @@ function reroll(param) {
     hero: [names_m, 's-hero'],
     wife: [names_f, 's-wife'],
     signal: [signals, 's-signal'],
+    howFound: [howFound, 's-howfound'],
     conflict: [conflicts, 's-conflict'],
     turning: [turningPoints, 's-turning'],
+    wifeResp: [wifeResponse, 's-wiferesp'],
     action: [heroActions, 's-action']
   };
   const [arr, id] = sources[param];
@@ -610,8 +678,10 @@ function buildPrompt() {
 Жена: ${current.wife}
 Место: США
 Сигнал для начала: ${current.signal}
+Как герой узнал о предательстве: ${current.howFound}
 Суть конфликта: ${current.conflict}
 Переломный момент: ${current.turning}
+Ответные действия жены: ${current.wifeResp}
 Действия героя в финале: ${current.action}
 
 РАССКАЗ
@@ -649,7 +719,7 @@ function copyPrompt() {
 
 randomize();
 
-document.getElementById('combo-count').textContent = (signals.length * conflicts.length * turningPoints.length).toLocaleString('ru-RU');
+document.getElementById('combo-count').textContent = (signals.length * howFound.length * conflicts.length * turningPoints.length * wifeResponse.length * heroActions.length).toLocaleString('ru-RU');
 </script>
 </body>
 </html>
