@@ -335,15 +335,35 @@
     </div>
   </div>
 
-  <div class="seed-grid">
-    <div class="seed-item" style="position:relative;"><div class="seed-key">// герой <span style="opacity:0.4;">· 25 имён</span></div><div class="seed-val name" id="s-hero">—</div><button class="mini-btn" onclick="reroll('hero')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('hero','Имя главного героя')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item" style="grid-column:2/-1;position:relative;"><div class="seed-key">// жена <span style="opacity:0.4;">· 25 имён</span></div><div class="seed-val name" id="s-wife">—</div><button class="mini-btn" onclick="reroll('wife')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('wife','Имя жены')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// сигнал для начала <span style="opacity:0.4;">· 42 варианта</span></div><div class="seed-val" id="s-signal">—</div><button class="mini-btn" onclick="reroll('signal')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('signal','Сигнал для начала')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// как узнал о предательстве <span style="opacity:0.4;">· 42 варианта</span></div><div class="seed-val" id="s-howfound">—</div><button class="mini-btn" onclick="reroll('howFound')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('howFound','Как узнал о предательстве')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// суть конфликта <span style="opacity:0.4;">· 46 вариантов</span></div><div class="seed-val" id="s-conflict">—</div><button class="mini-btn" onclick="reroll('conflict')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('conflict','Суть конфликта')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// переломный момент <span style="opacity:0.4;">· 121 вариант</span></div><div class="seed-val" id="s-turning">—</div><button class="mini-btn" onclick="reroll('turning')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('turning','Переломный момент')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// ответные действия жены <span style="opacity:0.4;">· 46 вариантов</span></div><div class="seed-val" id="s-wiferesp">—</div><button class="mini-btn" onclick="reroll('wifeResp')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('wifeResp','Ответные действия жены')" style="right:0.6rem;">✎</button></div>
-    <div class="seed-item full" style="position:relative;"><div class="seed-key">// действия героя в финале <span style="opacity:0.4;">· 48 вариантов</span></div><div class="seed-val" id="s-action">—</div><button class="mini-btn" onclick="reroll('action')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('action','Действия героя в финале')" style="right:0.6rem;">✎</button></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; margin-bottom:1.25rem;">
+
+    <!-- ЛЕВАЯ КОЛОНКА -->
+    <div style="display:flex; flex-direction:column; gap:1px; background:var(--border);">
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);">
+        <div class="seed-item" style="position:relative;"><div class="seed-key">// герой <span style="opacity:0.4;">· 25 имён</span></div><div class="seed-val name" id="s-hero">—</div><button class="mini-btn" onclick="reroll('hero')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('hero','Имя главного героя')" style="right:0.6rem;">✎</button></div>
+        <div class="seed-item" style="position:relative;"><div class="seed-key">// жена <span style="opacity:0.4;">· 25 имён</span></div><div class="seed-val name" id="s-wife">—</div><button class="mini-btn" onclick="reroll('wife')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('wife','Имя жены')" style="right:0.6rem;">✎</button></div>
+      </div>
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// сигнал для начала <span style="opacity:0.4;">· 42 варианта</span></div><div class="seed-val" id="s-signal">—</div><button class="mini-btn" onclick="reroll('signal')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('signal','Сигнал для начала')" style="right:0.6rem;">✎</button></div>
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// как узнал о предательстве <span style="opacity:0.4;">· 42 варианта</span></div><div class="seed-val" id="s-howfound">—</div><button class="mini-btn" onclick="reroll('howFound')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('howFound','Как узнал о предательстве')" style="right:0.6rem;">✎</button></div>
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// суть конфликта <span style="opacity:0.4;">· 46 вариантов</span></div><div class="seed-val" id="s-conflict">—</div><button class="mini-btn" onclick="reroll('conflict')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('conflict','Суть конфликта')" style="right:0.6rem;">✎</button></div>
+
+    </div>
+
+    <!-- ПРАВАЯ КОЛОНКА -->
+    <div style="display:flex; flex-direction:column; gap:1px; background:var(--border);">
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// переломный момент <span style="opacity:0.4;">· 121 вариант</span></div><div class="seed-val" id="s-turning">—</div><button class="mini-btn" onclick="reroll('turning')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('turning','Переломный момент')" style="right:0.6rem;">✎</button></div>
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// ответные действия жены <span style="opacity:0.4;">· 46 вариантов</span></div><div class="seed-val" id="s-wiferesp">—</div><button class="mini-btn" onclick="reroll('wifeResp')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('wifeResp','Ответные действия жены')" style="right:0.6rem;">✎</button></div>
+
+      <div class="seed-item" style="position:relative; flex:1;"><div class="seed-key">// действия героя в финале <span style="opacity:0.4;">· 48 вариантов</span></div><div class="seed-val" id="s-action">—</div><button class="mini-btn" onclick="reroll('action')" style="right:2.5rem;">↻</button><button class="mini-btn" onclick="openEdit('action','Действия героя в финале')" style="right:0.6rem;">✎</button></div>
+
+    </div>
+
   </div>
 
   <div class="btn-row">
